@@ -17,14 +17,16 @@
 #define EXT 4
 #define FUN 5
 
+#include "combos.dtsi"
+
 / {
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;    // <---[[moderate duration]]
-            quick-tap-ms = <150>;
+            tapping-term-ms = <250>;    // <---[[moderate duration]]
+            quick-tap-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
