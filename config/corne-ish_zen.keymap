@@ -12,20 +12,25 @@
 // Layer definitions
 #define QWR 0
 #define CLM 1
-#define SYM 2
-#define SYM2 3
+#define NUM 2
+#define SYM 3
 #define EXT 4
 #define FUN 5
 
 #include "combos.dtsi"
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS N1 N2 N3 N4 N5 N6 N7 N8 N9 N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9 KP_N0>;
+};
+
 / {
+
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <250>;    // <---[[moderate duration]]
+            tapping-term-ms = <250>;
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -37,56 +42,56 @@
 
         default_layer {
         label = "QWR";
-// -----------------------------------------------------------------------------------------
-// | ---- |  Q  |  W  |  E  |  R  |  T  | -------- |  Y  |  U  |  I  |  O  |  P  | ---- |
-// | ---- |  A  |  S  |  D  |  F  |  G  | -------- |  H  |  J  |  K  |  L  |  '  | ---- |
-// | ---- |  Z  |  X  |  C  |  V  |  B  | -------- |  N  |  M  |  ,  |  .  |  /  | ---- |
-//                    | gui | EXT | spc | -------- | sft | SYM | alt |
+        // --------------------------------------------------------------------------------------
+        // |------|  Q  |  W  |  E  |  R  |  T  |----------|  Y  |  U  |  I  |  O  |  P  |------|
+        // |------|  A  |  S  |  D  |  F  |  G  |----------|  H  |  J  |  K  |  L  |  '  |------|
+        // |------|  Z  |  X  |  C  |  V  |  B  |----------|  N  |  M  |  ,  |  .  |  /  |------|
+        //                    |-----|*EXT*| spc |----------| sft |*SYM*|-----|
         bindings = <
         &none  &kp Q       &kp W       &kp E        &kp R        &kp T        &kp Y  &kp U        &kp I        &kp O       &kp P         &none
         &none  &hm LCMD A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G        &kp H  &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RCMD SQT  &none
         &none  &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N  &kp M        &kp COMMA    &kp DOT     &kp FSLH      &none
-                                             &none  &mo EXT  &kp SPACE        &kp LSHFT  &mo SYM  &none
+                                             &none  &mo EXT  &kp SPACE        &kp LSHFT  &mo NUM  &none
         >;
         };
 
         colemak_layer {
         label = "CLM";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  | -------- |  Y  |  U  |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  | -------- |  H  |  J  |  K  |  L  |  '  |  ;   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  | -------- |  N  |  M  |  ,  |  .  |  /  | ESC  |
-//                    | gui | EXT | spc | -------- | sft | SYM | alt |
+        // --------------------------------------------------------------------------------------
+        // |------|  q  |  w  |  e  |  r  |  t  |----------|  y  |  u  |  i  |  o  |  p  |------|
+        // |------|  a  |  s  |  d  |  f  |  g  |----------|  h  |  j  |  k  |  l  |  '  |------|
+        // |------|  z  |  x  |  c  |  v  |  b  |----------|  n  |  m  |  ,  |  .  |  /  |------|
+        //                    |-----|*EXT*| spc |----------| sft |*NUM*|-----|
         bindings = <
-        &kp TAB   &kp Q &kp W &kp E &kp R &kp T        &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-        &kp LCTRL &kp A &kp S &kp D &kp F &kp G        &kp H &kp J  &kp K     &kp L   &kp SQT  &kp SEMI
-        &kp LSHFT &kp Z &kp X &kp C &kp V &kp B        &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                     &kp LGUI &mo EXT &kp SPACE        &kp LSHFT &mo SYM &kp RALT
+        &none  &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P     &none
+        &none  &kp A  &kp S  &kp D  &kp F  &kp G        &kp H  &kp J  &kp K      &kp L    &kp SQT   &none
+        &none  &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
+                        &none  &mo EXT  &kp SPACE       &kp LSHFT  &mo NUM  &none
         >;
         };
 
-        sym_layer {
-        label = "SYM";
-// -----------------------------------------------------------------------------------------
-// |      |  !  |  @  |  ;  |  :  |  _  | -------- |  +  |  7  |  8  |  9  |  =  |      |
-// |      |  \  |  |  |  {  |  (  |  [  | -------- |  -  |  4  |  5  |  6  |  0  |      |
-// |      |  `  |  ~  |  }  |  )  |  ]  | -------- |  *  |  1  |  2  |  3  |  /  |      |
-//                    |     |     | SYM2| -------- |     | xxx |     |
+        number_layer {
+        label = "NUM";
+        // --------------------------------------------------------------------------------------
+        // |------|  !  |  @  |  ;  |  :  |  _  |----------|  +  |  7  |  8  |  9  |  =  |------|
+        // |------|  \  |  |  |  {  |  (  |  [  |----------|  -  |  4  |  5  |  6  |  0  |------|
+        // |------|  `  |  ~  |  }  |  )  |  ]  |----------|  *  |  1  |  2  |  3  |  /  |------|
+        //                    |-----|     |*SYM*|----------|     | xxx |-----|
         bindings = <
         &none  &kp EXCL  &kp AT    &kp SEMI  &kp COLON  &kp UNDER         &kp PLUS  &kp N7  &kp N8  &kp N9  &kp EQUAL &none
         &none  &kp BSLH  &kp PIPE  &kp LBRC  &kp LPAR   &kp LBKT          &kp MINUS &kp N4  &kp N5  &kp N6  &kp N0    &none
         &none  &kp GRAVE &kp TILDE &kp RBRC  &kp RPAR   &kp RBKT          &kp ASTRK &kp N1  &kp N2  &kp N3  &kp SLASH &none
-                              	   &trans    &trans     &mo SYM2          &trans    &none    &trans
+                              	   &trans    &trans     &mo SYM           &trans    &none    &trans
         >;
         };
 
-        sym2_layer {
-        label = "SYM2";
-// -----------------------------------------------------------------------------------------
-// |      |     |     |     |     |     | -------- |     |  &  |  `  |  ~  |     |      |
-// |      |     |     |     |     |     | -------- |     |  $  |  %  |  ^  |  _  |      |
-// |      |     |     |     |     |     | -------- |     |  !  |  @  |  #  |  \  |      |
-//                    |     |     | xxx | -------- |     |     |     |
+        symbol_layer {
+        label = "SYM";
+        // --------------------------------------------------------------------------------------
+        // |------|     |     |     |     |     |----------|     |  &  |  `  |  ~  |     |------|
+        // |------|     |     |     |     |     |----------|     |  $  |  %  |  ^  |  _  |------|
+        // |------|     |     |     |     |     |----------|     |  !  |  @  |  #  |  \  |------|
+        //                    |-----|     | xxx |----------|     |     |-----|
         bindings = <
         &none  &none  &none  &none  &none  &none         &none  &kp AMPS  &kp GRAVE  &kp TILDE  &none     &none
         &none  &none  &none  &none  &none  &none         &none  &kp DLLR  &kp PRCNT  &kp CARET  &kp UNDER &none
@@ -95,34 +100,33 @@
         >;
         };
 
-        ext_layer {
+        extend_layer {
         label = "EXT";
-// -----------------------------------------------------------------------------------------
-// |------| esc |     |     |     |     | -------- | hom | pgd | pgu | end | bsp |------|
-// |------| cmd | alt | ctl | sft | meh | -------- | lef | dwn | up  | rig | bsp |------|
-// |------|     |stab |     | tab |     | -------- |     | ret |     |     | del |------|
-//                    |     | xxx | FUN | -------- |     |     |     |
+        // --------------------------------------------------------------------------------------
+        // | ---- |     |     |     |     |     |----------| hom | pgd | pgu | end | del | ---- |
+        // | ---- | cmd | alt | ctl | sft | meh |----------| lef | dwn | up  | rig | bsp | ---- |
+        // | ---- | esc |     |s-tab| tab |     |----------|     | ret |     |     | bsp | ---- |
+        //                    |-----| xxx |*FUN*|----------|     |     |-----|
         bindings = <
-        &none  &kp ESC   &none       &none     &none      &none          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END   &kp BSPC  &none
-        &none  &sk LCMD  &sk LALT    &sk LCTRL &sk LSHFT  &none          &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT &kp BSPC  &none
-        &none  &none     &kp LS(TAB) &kp RBRC  &kp TAB    &none          &none     &kp RET    &none      &none     &kp DEL   &none
-                              	     &trans    &none      &mo FUN        &trans    &trans    &trans
+        &none  &none     &none       &none        &none      &none          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END   &kp DEL   &none
+        &none  &sk LCMD  &sk LALT    &sk LCTRL    &sk LSHFT  &none          &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT &kp BSPC  &none
+        &none  &kp ESC   &none       &kp LS(TAB)  &kp TAB    &none          &none     &kp RET    &none      &none     &kp BSPC  &none
+                              	     &trans       &none      &mo FUN        &trans    &trans    &trans
         >;
         };
 
-        fun_layer {
+        function_layer {
         label = "FUN";
-// -----------------------------------------------------------------------------------------
-// |------| br- | br+ | vl- | vl+ | mut | -------- | hom | pgd | pgu | end | bsp |------|
-// |------|     |     |     |     |     | -------- | lef | dwn | up  | rig | bsp |------|
-// |------| btC | bt0 | bt1 | bt2 | bt3 | -------- |     | ret |     |     | del |------|
-//                    |     | xxx | FUN | -------- |     |     |     |
+        // --------------------------------------------------------------------------------------
+        // | ---- | br- | br+ | vl- | vl+ | mut |----------| hom | pgd | pgu | end | bsp | ---- |
+        // | ---- |     |     |     |     |     |----------| lef | dwn | up  | rig | bsp | ---- |
+        // | ---- | btC | bt0 | bt1 | bt2 | bt3 |----------|     | ret |     |     | del | ---- |
+        //                    |-----| xxx | FUN |----------|     |     |-----|
         bindings = <
         &none  &kp C_BRI_DN  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP   &kp C_MUTE       &kp F12  &kp F7  &kp F8  &kp F9 &none    &none
         &none  &none         &none         &none         &none          &none            &kp F11  &kp F4  &kp F5  &kp F6 &to CLM  &none
         &none  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &bt BT_SEL 3     &kp F10  &kp F1  &kp F2  &kp F3 &to QWR  &none
                               	                        &trans  &trans  &none            &trans  &trans  &trans
-
         >;
         };
 
