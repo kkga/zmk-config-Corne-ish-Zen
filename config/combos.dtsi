@@ -7,29 +7,30 @@
   ╰───────────╮ 36  37  38 │ │ 39  40  41 ╭───────────╯
               ╰────────────╯ ╰────────────╯            */
 
-#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM)                            \
-  combo_##NAME {                                                               \
-    timeout - ms = <TERM>;                                                     \
-    bindings = <BINDINGS>;                                                     \
-    key - positions = <KEYPOS>;                                                \
-    layers = <LAYERS>;                                                         \
-  };
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM) \
+        combo_##NAME { \
+            timeout-ms = <TERM>; \
+            bindings = <BINDINGS>; \
+            key-positions = <KEYPOS>; \
+            layers = <LAYERS>; \
+        };
 
 / {
-  combos {
-    compatible = "zmk,combos";
+    combos {
+        compatible = "zmk,combos";
 
-    // left
-    COMBO(esc,    &kp ESC,    14 15, QWR CLM, 40)
-    COMBO(tab,    &kp TAB,    27 28, QWR CLM, 40)
+// left
+COMBO(esc,    &kp ESC,      14 15, QWR CLM, 40)
+COMBO(tab,    &kp TAB,      27 28, QWR CLM, 40)
 
-    // right
-    COMBO(colon,  &kp COLON,   7  8, QWR CLM, 40)
-    COMBO(under,  &kp UNDER,   8  9, QWR CLM, 40)
-    COMBO(ret,    &kp RET,    31 32, QWR CLM, 40)
-    COMBO(bspc,   &kp BSPC,   20 21, QWR CLM, 40)
+// right
+COMBO(semi,   &kp COLON,     7  8, QWR CLM, 40)
+COMBO(under,  &kp UNDER,     8  9, QWR CLM, 40)
+COMBO(ret,    &kp RET,      31 32, QWR CLM, 40)
+COMBO(bspc,   &kp BSPC,     20 21, QWR CLM, 40)
 
-    // both
-    COMBO(capswd, &caps_word, 16 19, QWR CLM, 60)
-  };
+// both
+COMBO(capswd, &caps_word,   16 19, QWR CLM, 60)
+
+    };
 };
