@@ -29,7 +29,7 @@ COMBO(under,  &kp UNDER,    9  10, QWR CLM, 40)
 COMBO(ret,    &kp RET,      31 32, QWR CLM, 40)
 COMBO(bspc,   &kp BSPC,     21 22, QWR CLM, 40)
 
-COMBO(capswd, &caps_word,   10 19, QWR CLM, 60)
+COMBO(capswd, &caps_word,   16 19, QWR CLM, 60)
 
     };
 };
