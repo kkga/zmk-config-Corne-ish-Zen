@@ -21,8 +21,8 @@
 
 // left
 COMBO(esc,    &kp ESC,      14 15, QWR CLM, 40)
-COMBO(tab,    &kp TAB,      27 28, QWR CLM, 40)
-COMBO(tab,    &kp TAB,      27 28, QWR CLM, 40)
+COMBO(tab,    &kp TAB,      16 28, QWR CLM, 40)
+COMBO(tab2,   &kp TAB,      27 28, QWR CLM, 40)
 
 // right
 COMBO(semi,   &kp COLON,     7  8, QWR CLM, 40)
