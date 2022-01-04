@@ -1,5 +1,4 @@
-/* KEY POSITIONS
-
+/* Corne-ish Zen key positions
   ╭────────────────────────╮ ╭────────────────────────╮
   │  0   1   2   3   4   5 │ │  6   7   8   9  10  11 │
   │ 12  13  14  15  16  17 │ │ 18  19  20  21  22  23 │
@@ -21,14 +20,16 @@
 
 // left
 COMBO(esc,    &kp ESC,      14 15, QWR CLM, 40)
-COMBO(tab,    &kp TAB,      16 28, QWR CLM, 40)
-COMBO(tab2,   &kp TAB,      27 28, QWR CLM, 40)
+COMBO(tab,    &kp TAB,      27 28, QWR CLM, 40)
 
 // right
-COMBO(semi,   &kp COLON,     7  8, QWR CLM, 40)
-COMBO(under,  &kp UNDER,     8  9, QWR CLM, 40)
 COMBO(ret,    &kp RET,      31 32, QWR CLM, 40)
 COMBO(bspc,   &kp BSPC,     20 21, QWR CLM, 40)
+COMBO(colon,  &kp COLON,     7  8, QWR CLM, 40)
+COMBO(equal,  &kp EQUAL,  7  8  9, QWR CLM, 40)
+COMBO(under,  &kp UNDER,     8  9, QWR CLM, 40)
+COMBO(bslsh,  &kp BSLH,     33 34, QWR CLM, 40)
+COMBO(pipe,   &kp PIPE,  32 33 34, QWR CLM, 40)
 
 // both
 COMBO(capswd, &caps_word,   16 19, QWR CLM, 60)
