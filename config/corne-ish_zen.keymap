@@ -18,7 +18,11 @@
 #define FUN 5
 
 // Custom keycodes
-#define MEH LS(LA(LCTRL))
+#define MEH    LS(LA(LCTRL))
+#define D_LT   LC(LG(LEFT))
+#define D_RT   LC(LG(RIGHT))
+#define TAB_RT LC(TAB)
+#define TAB_LT LC(LS(TAB))
 #define BSPWRD LA(LC(BSPC))
 
 #include "combos.dtsi"
@@ -46,7 +50,6 @@
 
         default_layer {
         label = "QWR";
-        // --------------------------------------------------------------------------------------
         // |------|  Q  |  W  |  E  |  R  |  T  |----------|  Y  |  U  |  I  |  O  |  P  |------|
         // |------|  A  |  S  |  D  |  F  |  G  |----------|  H  |  J  |  K  |  L  |  '  |------|
         // |------|  Z  |  X  |  C  |  V  |  B  |----------|  N  |  M  |  ,  |  .  |  /  |------|
@@ -61,7 +64,6 @@
 
         colemak_layer {
         label = "CLM";
-        // --------------------------------------------------------------------------------------
         // |------|  q  |  w  |  e  |  r  |  t  |----------|  y  |  u  |  i  |  o  |  p  |------|
         // |------|  a  |  s  |  d  |  f  |  g  |----------|  h  |  j  |  k  |  l  |  '  |------|
         // |------|  z  |  x  |  c  |  v  |  b  |----------|  n  |  m  |  ,  |  .  |  /  |------|
@@ -76,7 +78,6 @@
 
         number_layer {
         label = "NUM";
-        // --------------------------------------------------------------------------------------
         // |------|  !  |  @  |  ;  |  :  |  _  |----------|  +  |  7  |  8  |  9  |  =  |------|
         // |------|  \  |  |  |  {  |  (  |  [  |----------|  -  |  4  |  5  |  6  |  0  |------|
         // |------|  `  |  ~  |  }  |  )  |  ]  |----------|  *  |  1  |  2  |  3  |  /  |------|
@@ -91,7 +92,6 @@
 
         symbol_layer {
         label = "SYM";
-        // --------------------------------------------------------------------------------------
         // |------|     |     |     |     |     |----------|     |  &  |  `  |  ~  |     |------|
         // |------|     |     |     |     |     |----------|     |  $  |  %  |  ^  |  _  |------|
         // |------|     |     |     |     |     |----------|     |  !  |  @  |  #  |  \  |------|
@@ -106,13 +106,12 @@
 
         extend_layer {
         label = "EXT";
-        // --------------------------------------------------------------------------------------
-        // | ---- |     |     |     |     |     |----------| hom | pgd | pgu | end | del | ---- |
+        // | ---- | d-l | d-r |tab-l|tab-r|     |----------| hom | pgd | pgu | end | del | ---- |
         // | ---- | cmd | alt | ctl | sft | meh |----------| lef | dwn | up  | rig | bsp | ---- |
         // | ---- | esc |     |s-tab| tab |     |----------|     | ret |     |     | bsp | ---- |
         //                    |-----| xxx |*FUN*|----------|     |     |-----|
         bindings = <
-        &none  &none     &none       &none        &none      &none          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END     &kp DEL   &none
+        &none  &kp D_LT  &kp D_RT    &kp TAB_LT   &kp TAB_RT &none          &kp HOME  &kp PG_DN  &kp PG_UP  &kp END     &kp DEL   &none
         &none  &sk LCMD  &sk LALT    &sk LCTRL    &sk LSHFT  &sk MEH        &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp BSPC  &none
         &none  &kp ESC   &none       &kp LS(TAB)  &kp TAB    &none          &none     &kp RET    &none      &kp BSPWRD  &kp BSPC  &none
                               	     &trans       &none      &mo FUN        &trans    &trans    &trans
@@ -121,7 +120,6 @@
 
         function_layer {
         label = "FUN";
-        // --------------------------------------------------------------------------------------
         // | ---- | br- | br+ | vl- | vl+ | mut |----------| hom | pgd | pgu | end | bsp | ---- |
         // | ---- |     |     |     |     |     |----------| lef | dwn | up  | rig | bsp | ---- |
         // | ---- | btC | bt0 | bt1 | bt2 | bt3 |----------|     | ret |     |     | del | ---- |
