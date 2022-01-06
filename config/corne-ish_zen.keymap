@@ -19,9 +19,9 @@
 //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 
 / {
-  combos {
-    #include "combos.dtsi"
-  };
+  // combos {
+  //   #include "combos.dtsi"
+  // };
 
   behaviors {
     am: alpha_mods {
