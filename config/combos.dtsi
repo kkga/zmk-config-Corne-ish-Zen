@@ -16,20 +16,32 @@ compatible = "zmk,combos";
     layers = <LAYERS>; \
   };
 
-// left
-COMBO(esc,    &kp ESC,      14 15, QWR CLM, 40)
-COMBO(tab,    &kp TAB,      27 28, QWR CLM, 40)
+// Big keys
+COMBO(esc,             &kp ESC,              14 15, QWR CLM, 40)
+COMBO(tab,             &kp TAB,              27 28, QWR CLM, 40)
+COMBO(ret,             &kp RET,              31 32, QWR CLM, 40)
+COMBO(bspc,            &kp BSPC,             20 21, QWR CLM, 40)
 
-// right
-COMBO(ret,    &kp RET,      31 32, QWR CLM, 40)
-COMBO(bspc,   &kp BSPC,     20 21, QWR CLM, 40)
-COMBO(colon,  &kp COLON,     7  8, QWR CLM, 40)
-COMBO(equal,  &kp EQUAL,  7  8  9, QWR CLM, 40)
-COMBO(under,  &kp UNDER,     8  9, QWR CLM, 40)
-COMBO(bslsh,  &kp BSLH,     33 34, QWR CLM, 40)
-COMBO(pipe,   &kp PIPE,  32 33 34, QWR CLM, 40)
+// Text processing
+COMBO(undo,            &kp LC(LG(Z)),        25 26, QWR CLM, 40)
+COMBO(cut,             &kp LC(LG(X)),        26 28, QWR CLM, 40)
+COMBO(copy,            &kp LC(LG(C)),        26 27, QWR CLM, 40)
+COMBO(paste,           &kp LC(LG(V)),     26 27 28, QWR CLM, 40)
+COMBO(select_all,      &kp LC(LG(A)),        25 28, QWR CLM, 40)
+COMBO(capswd,          &caps_word,           16 19, QWR CLM, 60)
 
-// both
-COMBO(capswd, &caps_word,   16 19, QWR CLM, 60)
+// System
+COMBO(launcher,        &kp LG(SPACE),     14 15 16, QWR CLM, 40)
+// COMBO(power,           &kp C_POWER,        4  5,    QWR CLM, 40)
+// COMBO(menu_search,     &kp LG(LS(SLASH)), 27 28,    QWR CLM, 40)
+// COMBO(mic_mute_left,   &kp LG(BACKSLASH), 13 23,    QWR CLM, 40)
+// COMBO(mic_mute_right,  &kp LG(BACKSLASH), 16 26,    QWR CLM, 40)
 
-// vim:ft=c
+// Symbols
+COMBO(colon,           &kp COLON,             7  8, QWR CLM, 40)
+COMBO(equal,           &kp EQUAL,          7  8  9, QWR CLM, 40)
+COMBO(under,           &kp UNDER,             8  9, QWR CLM, 40)
+COMBO(bslsh,           &kp BSLH,             33 34, QWR CLM, 40)
+COMBO(pipe,            &kp PIPE,          32 33 34, QWR CLM, 40)
+
+//vim:ft=c
