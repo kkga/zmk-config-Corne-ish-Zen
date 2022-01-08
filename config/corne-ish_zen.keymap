@@ -26,10 +26,18 @@
       compatible = "zmk,behavior-hold-tap";
       label = "alpha mods";
       #binding-cells = <2>;
-      tapping-term-ms = <240>;
-      quick-tap-ms = <180>;
-      flavor = "tap-preferred";
+      tapping-term-ms = <100>;
+      quick-tap-ms = <200>;
+      flavor = "tap-unless-interrupted";
       bindings = <&kp>, <&kp>;
+      // compatible = "zmk,behavior-hold-tap";
+      // label = "POSITIONAL_HOLD_TAP";
+      // #binding-cells = <2>;
+      // flavor = "tap-unless-interrupted";
+      // tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+      // quick-tap-ms = <200>;
+      // bindings = <&kp>, <&kp>;
+      // hold-trigger-key-positions = <5 6 7 8 9 10>;    // <---[[right-hand keys]]
     };
 
     // Easy alt-tab with alt+space thumb using mod-morphs
@@ -90,7 +98,7 @@
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      XXX           &kp Q         &kp W         &am LCTL E    &kp R         &kp T             &kp Y         &kp U         &am LCTL I    &kp O         &kp P         XXX
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     XXX           &kp A         &am LSHFT S   &am LALT D    &am LCMD F    &kp G             &kp H         &am LCMD J    &am LALT K    &am LSHFT L   &kp SQT       XXX
+     XXX           &kp A         &am LCMD  S   &am LALT D    &am LSHFT F   &kp G             &kp H         &am LSHFT J   &am LALT K    &am LCMD L    &kp SQT       XXX
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      XXX           &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      XXX
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
@@ -150,7 +158,7 @@
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      XXX           &kp D_LT      &kp D_RT      SK(LCTRL)     &kp TAB_LT    &kp TAB_RT        &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp DEL       XXX
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     XXX           &kp ESC       SK(LSHFT)     SK(LALT)      SK(LCMD)      SK(MEH)           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSPC      XXX
+     XXX           &kp ESC       SK(LCMD)      SK(LALT)      SK(LSHFT)     SK(MEH)           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSPC      XXX
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      XXX           XXX           &kp LS(TAB)   XXX           &kp TAB       XXX               XXX           &kp RET       XXX           XXX           &kp BSPWRD    XXX
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
